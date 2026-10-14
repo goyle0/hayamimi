@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>早耳字幕</title>
+<link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+<header>
+  <div class="status" id="status" data-state="connecting">
+    <span class="dot" aria-hidden="true"></span>
+    <span id="status-text">早耳に接続しています…</span>
+  </div>
+  <div class="tools">
+    <button type="button" id="font-down" title="文字を小さく" aria-label="文字を小さく">A−</button>
+    <button type="button" id="font-up" title="文字を大きく" aria-label="文字を大きく">A＋</button>
+    <button type="button" id="copy" title="表示中の字幕をすべてコピー">コピー</button>
+    <button type="button" id="clear" title="表示中の字幕を消す（早耳の記録は消えません）">クリア</button>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button type="button" role="tab" id="tab-live" aria-selected="true" aria-controls="feed-live">字幕</button>
+  <button type="button" role="tab" id="tab-refined" aria-selected="false" aria-controls="feed-refined">清書</button>
+</nav>
+
+<div class="hint" id="hint" hidden>
+  早耳が動いていません。デスクトップの「早耳字幕.bat」を起動してください。起動すると自動でつながります。
+</div>
+
+<main id="scroller">
+  <div class="feed" id="feed-live" role="tabpanel" aria-labelledby="tab-live">
+    <p class="empty">相手の声が字幕になると、ここに出ます。</p>
+  </div>
+  <div class="feed" id="feed-refined" role="tabpanel" aria-labelledby="tab-refined" hidden>
+    <p class="empty">話の切れ目ごとに、読み直した文章がここに出ます。</p>
+  </div>
+</main>
+
+<button type="button" class="jump" id="jump" hidden>最新へ ↓</button>
+
+<footer id="partial-box">
+  <span class="label">いま聞き取り中</span>
+  <span id="partial" class="idle">…</span>
+</footer>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="sidepanel.js"></script>
+</body>
+</html>
